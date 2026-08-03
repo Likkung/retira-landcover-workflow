@@ -66,7 +66,7 @@ The workflow consists of the following processing steps:
 
 The workflow requires the following datasets:
 
-- MODIS Terra/Aqua Land Surface Temperature
+- MODIS Terra/Aqua Land Surface Temperature (must pass pre-processing)
 - MCD12Q1 Land Cover
 - MODIS FIRMS Active Fire
 - Study Area Boundary (AOI)
