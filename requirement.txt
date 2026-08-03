@@ -1,0 +1,42 @@
+# ==========================================================
+# Modified RETIRA Workflow
+# Python 3.13
+# ==========================================================
+
+# Numerical Computing
+numpy>=2.0
+scipy>=1.15
+pandas>=2.3
+
+# Geospatial
+geopandas>=1.1
+rasterio>=1.4
+rioxarray>=0.19
+shapely>=2.1
+pyproj>=3.7
+fiona>=1.10
+
+# Raster Processing
+xarray>=2025.6
+odc-geo>=0.4
+
+# Parallel Computing
+dask[distributed]>=2025.5
+distributed>=2025.5
+
+# Visualization
+matplotlib>=3.10
+bokeh>=3.7
+
+# File IO
+openpyxl>=3.1
+xlsxwriter>=3.2
+
+# Utilities
+tqdm>=4.67
+psutil>=7.0
+
+# Optional (recommended)
+jupyterlab>=4.4
+ipykernel>=6.30
+notebook>=7.4
