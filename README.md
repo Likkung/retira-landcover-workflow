@@ -82,7 +82,7 @@ Implements the proposed land-cover-conditioned workflow, including:
 
 The workflow requires the following datasets.
 
-- MODIS Terra/Aqua Land Surface Temperature
+- MODIS Terra/Aqua Land Surface Temperature ( pass the pre-processing)
 - MCD12Q1 Land Cover
 - MODIS FIRMS Active Fire
 - Area of Interest (AOI)
@@ -162,7 +162,7 @@ Hemkaew, K., & Suwanprasit, C.
 
 Development of a Thermal Anomaly Detection System from Medium and Small Earthquakes using Thermal Infrared Remote Sensing Data.
 
-(Under Review)
+(Under Development)
 
 ---
 
@@ -184,4 +184,4 @@ Chiang Mai University
 
 Thailand
 
-Email: your_email@cmu.ac.th
+Email: kolik_hemkaew@cmu.ac.th
