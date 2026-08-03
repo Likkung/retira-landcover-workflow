@@ -1,32 +1,44 @@
-# Modified RETIRA: Land-Cover-Conditioned Thermal Anomaly Workflow
+# Modified RETIRA Workflow
+
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
 ## Overview
 
-This repository contains the semi-automatic Python workflow developed for the study:
+This repository contains the semi-automatic Python workflow developed for the manuscript:
 
 > **Development of a Thermal Anomaly Detection System from Medium and Small Earthquakes using Thermal Infrared Remote Sensing Data**
 
-The workflow implements an improved RETIRA (Robust Estimator of Thermal Infrared Anomalies) processing framework by incorporating land-cover information into thermal background estimation.
+The workflow implements an improved **Robust Estimator of Thermal Infrared Anomalies (RETIRA)** by incorporating **land-cover-conditioned thermal background estimation**.
 
-The implementation supports three background estimation strategies:
+Unlike the conventional RETIRA approach, the proposed workflow evaluates multiple background estimation strategies based on land-cover information to reduce background variability in heterogeneous landscapes.
 
-- Conventional (Land–Water Mask)
-- Majority Land-Cover
-- Continuity Land-Cover
+The repository accompanies the journal manuscript and is provided to improve computational reproducibility.
 
-The repository accompanies the corresponding journal manuscript and is intended to improve the reproducibility of the proposed methodology.
+---
+
+# Methodology
+
+The workflow evaluates three RETIRA background estimation strategies.
+
+1. Conventional (Land–Water Mask)
+
+2. Majority Land-Cover
+
+3. Continuity Land-Cover
+
+The corresponding methodology is described in the manuscript.
 
 ---
 
 # Repository Structure
 
 ```
-Modified_TA
+Modified_RETIRA_Workflow/
+
 │
-├── Thesis_Revision_LW.ipynb
-├── Thesis_Revision_LC.ipynb
-├── Thesis_Revision_LW_62.ipynb
-├── Thesis_Revision_LC_62.ipynb
+├── RETIRA_LW.ipynb
+├── RETIRA_LC.ipynb
 │
 ├── requirements.txt
 ├── LICENSE
@@ -37,77 +49,83 @@ Modified_TA
 
 # Workflow
 
-The workflow consists of the following processing steps:
+The workflow consists of the following processing steps.
 
 1. Import MODIS Land Surface Temperature (LST)
 2. Convert digital values into physical temperature
-3. Prepare annual land-cover maps (MCD12Q1)
+3. Prepare annual land-cover data (MCD12Q1)
 4. Prepare MODIS FIRMS hotspot observations
-5. Calculate spatial mean temperature (T(t))
-6. Compute ΔT
+5. Calculate spatial mean temperature
+6. Calculate ΔT
 7. Estimate RETIRA
-8. Apply Majority or Continuity background estimation
+8. Apply Majority or Continuity land-cover filtering
 9. Export thermal anomaly products
 
 ---
 
 # Notebook Description
 
-| Notebook | Description |
-|------------|-------------|
-| Thesis_Revision_LW.ipynb | Magnitude 4.7 earthquake using conventional land–water masking |
-| Thesis_Revision_LC.ipynb | Magnitude 4.7 earthquake using land-cover-based background estimation |
-| Thesis_Revision_LW_62.ipynb | Magnitude 6.2 earthquake using conventional land–water masking |
-| Thesis_Revision_LC_62.ipynb | Magnitude 6.2 earthquake using land-cover-based background estimation |
+## RETIRA_LW.ipynb
+
+Implements the conventional Land–Water background estimation workflow.
+
+## RETIRA_LC.ipynb
+
+Implements the proposed land-cover-conditioned workflow, including:
+
+- Majority land-cover strategy
+- Continuity land-cover strategy
 
 ---
 
-# Input Data
+# Required Input Data
 
-The workflow requires the following datasets:
+The workflow requires the following datasets.
 
-- MODIS Terra/Aqua Land Surface Temperature (must pass pre-processing)
+- MODIS Terra/Aqua Land Surface Temperature
 - MCD12Q1 Land Cover
 - MODIS FIRMS Active Fire
-- Study Area Boundary (AOI)
+- Area of Interest (AOI)
 
-The original datasets can be obtained from:
+The original datasets are publicly available from NASA and FIRMS.
 
-- NASA LP DAAC
-- FIRMS
-- USGS
-
-Due to licensing and data volume, the original datasets are **not included** in this repository.
+They are **not included** in this repository because of data volume and redistribution policies.
 
 ---
 
-# Software Environment
+# Software Requirements
 
-The workflow was developed using
+Python 3.13
 
-- Python 3.13
-- Rasterio
-- GeoPandas
+Major packages include
+
 - NumPy
 - Pandas
-- SciPy
-- Dask
-- Xarray
+- Rasterio
+- GeoPandas
 - Rioxarray
+- Xarray
+- Dask
+- SciPy
+- OpenPyXL
 
-See `requirements.txt` for package versions.
+Install dependencies using
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
 # Running the Workflow
 
-Before executing the notebooks, modify the project directory:
+Before executing the notebooks, modify the project directory.
 
 ```python
 PROJECT_DIR = Path("/your/project/path")
 ```
 
-Then execute the notebook from top to bottom.
+Run the notebook sequentially from top to bottom.
 
 ---
 
@@ -115,36 +133,36 @@ Then execute the notebook from top to bottom.
 
 The workflow supports
 
-- Desktop Computing
-- High-memory Workstations
-- Cloud Computing
+- Desktop computing
+- Cloud computing
+- Parallel processing using Dask
 
-Dask is used to distribute raster processing tasks across multiple workers.
+Processing performance depends on
+
+- CPU configuration
+- RAM
+- Storage performance
+- Number of Dask workers
 
 ---
 
 # Reproducibility
 
-The workflow implements the methodology described in the associated manuscript.
+The workflow reproduces the computational procedures described in the associated manuscript.
 
-Results may vary depending on
-
-- available RAM
-- CPU configuration
-- storage performance
-- Dask worker configuration
+Minor differences in execution time may occur depending on hardware configuration and Dask scheduling.
 
 ---
 
 # Citation
 
-If you use this workflow, please cite:
+If this workflow contributes to your research, please cite the associated manuscript.
 
 Hemkaew, K., & Suwanprasit, C.
 
 Development of a Thermal Anomaly Detection System from Medium and Small Earthquakes using Thermal Infrared Remote Sensing Data.
 
-(under review)
+(Under Review)
 
 ---
 
@@ -166,5 +184,4 @@ Chiang Mai University
 
 Thailand
 
-Email:
-kolik_hemkaew@outlook.com
+Email: your_email@cmu.ac.th
